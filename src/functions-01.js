@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /*
  * functions-01.js
@@ -17,7 +18,8 @@
  * example: 'Buzz Lightyear' returns 'Lightyear, Buzz'
  */
 function nameShuffle(str) {
-  // write your code here & return value
+  const name = str.split(' ');
+  return `${name[1]}, ${name[0]}`;
 }
 
 /**
@@ -35,7 +37,7 @@ function nameShuffle(str) {
  * example: '&', '&' returns true
  */
 function isStrangePair(str1, str2) {
-  // write your code here & return value
+  return str1.charAt(0) === str2.charAt(str2.length - 1);
 }
 
 /**
@@ -47,7 +49,8 @@ function isStrangePair(str1, str2) {
  * example: '98.6%' returns 0.986
  */
 function convertToDecimal(percent) {
-  // write your code here & return value
+  const num = percent.substring(0, percent.indexOf('%'));
+  return num / 100;
 }
 
 /**
@@ -60,7 +63,11 @@ function convertToDecimal(percent) {
  * example: [1, 2, 3, 4], [4, 3, 2, 1, 5] returns false
  */
 function checkSameSum(a1, a2) {
-  // write your code here & return value
+  let sum1 = 0;
+  let sum2 = 0;
+  a1.forEach((value) => { sum1 += value; });
+  a2.forEach((value) => { sum2 += value; });
+  return sum1 === sum2;
 }
 
 /**
@@ -70,8 +77,11 @@ function checkSameSum(a1, a2) {
  * example: saveUsername('John') returns a function that returns 'John'
  * must use a closure to save the username
  */
+
 function saveLogin(name) {
-  // write your code here
+  return function findLogin() {
+    return name;
+  };
 }
 
 module.exports = {
